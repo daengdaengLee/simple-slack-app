@@ -24,7 +24,10 @@ app.post("/slack/daengdaenglee", (req, res) => {
   if (text.startsWith("echo")) {
     const str = text.replace(/^echo/, "");
     console.log(`[echo][request ${responseUrl}] ${str}`);
-    const body = JSON.stringify({ text: str });
+    const body = JSON.stringify({
+      response_type: "in_channel",
+      text: str
+    });
     const responseToSlack = https.request(
       responseUrl,
       {
