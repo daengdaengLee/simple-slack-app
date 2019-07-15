@@ -4,7 +4,7 @@ const https = require("https");
 const express = require("express");
 
 const app = express();
-const port = 4356;
+const port = process.env.PORT || 4356;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
